@@ -1,0 +1,432 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --unit: calc(100vw / 52);
+  --font-unit: calc(var(--unit) * 1);
+  --border-color: rgba(13, 81, 112, 1);
+  --line-color: rgba(39, 35, 90, 0.7);
+  --square-a-color: rgba(55, 230, 128, 0.7);
+  --rectangle-ab-color: rgba(226, 216, 73, 0.7);
+  --square-b-color: rgba(89, 171, 226, 0.7);
+  --background-color: rgba(224, 241, 241, 0.8);
+  --font-color: rgb(12, 48, 95);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: var(--font-color);
+  font-size: var(--font-unit);
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  overflow: hidden;
+}
+
+h1 {
+  --h1-size: calc(var(--font-unit) * 1.4);
+  margin-top: calc(var(--h1-size) * 0.3);
+  font-weight: 600;
+  font-size: var(--h1-size);
+}
+
+sup {
+  position: relative;
+  top: -0.3em;
+  vertical-align: top;
+  font-size: calc(var(--font-unit) * 0.8);
+}
+
+span > sup {
+  font-weight: 600;
+}
+
+span {
+  font-weight: 600;
+}
+
+button.active.active {
+  background-color: var(--line-color);
+  color: var(--background-color);
+}
+
+span.plus,
+span.minus {
+  position: absolute;
+  top: calc(var(--unit) * -2.2);
+  user-select: none;
+}
+
+span.minus {
+  top: calc(var(--unit) * -1.2);
+}
+
+.operators {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+}
+
+.graph-paper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: linear-gradient(var(--line-color) 1px, transparent 1px),
+    linear-gradient(to right, var(--line-color) 1px, transparent 1px);
+  background-size: var(--unit) var(--unit);
+  background-color: var(--background-color);
+  padding: var(--unit);
+  height: 100vh;
+}
+
+.content-1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--unit);
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  z-index: 4;
+  width: 60%;
+}
+
+.buttons > button {
+  cursor: pointer;
+  margin-top: calc(var(--unit) * -0.5);
+  background-color: var(--background-color);
+  width: calc(var(--unit) * 4);
+  height: calc(var(--unit) * 1);
+  font-size: calc(var(--font-unit) * 0.6);
+}
+
+button:hover {
+  transition: 0.3s;
+  background-color: var(--border-color);
+  color: var(--background-color);
+}
+
+.formulas-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.formula {
+  padding: var(--unit);
+}
+
+.drawing {
+  position: relative;
+  width: calc(var(--unit) * 12);
+  height: calc(var(--unit) * 12);
+}
+
+.rectangle {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+}
+
+.square-a {
+  top: calc(var(--unit) * 2);
+  left: calc(var(--unit) * 2);
+  background-color: var(--square-a-color);
+  width: calc(var(--unit) * 5);
+  height: calc(var(--unit) * 5);
+}
+
+.square-a.last {
+  width: calc(var(--unit) * 3);
+  height: calc(var(--unit) * 3);
+}
+
+.square-b {
+  top: calc(var(--unit) * 7);
+  left: calc(var(--unit) * 7);
+  background-color: var(--square-b-color);
+  width: calc(var(--unit) * 2);
+  height: calc(var(--unit) * 2);
+}
+
+.square-b.last {
+  top: calc(var(--unit) * 5);
+  left: calc(var(--unit) * 5);
+  border-right: 3px dashed var(--border-color);
+  border-bottom: 3px dashed var(--border-color);
+  background-color: transparent;
+}
+
+.rectangle-ab {
+  top: calc(var(--unit) * 2);
+  left: calc(var(--unit) * 7);
+  background-color: var(--rectangle-ab-color);
+  width: calc(var(--unit) * 2);
+  height: calc(var(--unit) * 5);
+}
+
+.rectangle-ab.minus {
+  border-top: 3px dashed var(--border-color);
+  border-right: 3px dashed var(--border-color);
+  background-color: transparent;
+}
+
+.rectangle-ab.last {
+  top: calc(var(--unit) * 2);
+  left: calc(var(--unit) * 5);
+  background-color: var(--square-a-color);
+  width: calc(var(--unit) * 2);
+  height: calc(var(--unit) * 3);
+}
+
+.rectangle-ba {
+  top: calc(var(--unit) * 7);
+  left: calc(var(--unit) * 2);
+  background-color: var(--rectangle-ab-color);
+  width: calc(var(--unit) * 5);
+  height: calc(var(--unit) * 2);
+}
+
+.rectangle-ba.minus {
+  border-bottom: 3px dashed var(--border-color);
+  border-left: 3px dashed var(--border-color);
+  background-color: transparent;
+}
+
+.rectangle-ba.last {
+  top: calc(var(--unit) * 5);
+  left: calc(var(--unit) * 2);
+  background-color: var(--square-a-color);
+  width: calc(var(--unit) * 3);
+  height: calc(var(--unit) * 2);
+}
+
+.blank-left-top {
+  left: calc(var(--unit) * 2);
+  width: calc(var(--unit) * 5);
+  height: calc(var(--unit) * 2);
+}
+
+.blank-right-top {
+  left: calc(var(--unit) * 7);
+  width: calc(var(--unit) * 2);
+  height: calc(var(--unit) * 2);
+}
+
+.blank-right-top.last {
+  top: calc(var(--unit) * 5);
+}
+
+.blank-left-up {
+  top: calc(var(--unit) * 2);
+  left: calc(var(--unit) * 0);
+  width: calc(var(--unit) * 2);
+  height: calc(var(--unit) * 5);
+}
+
+.blank-left-down {
+  top: calc(var(--unit) * 7);
+  left: calc(var(--unit) * 0);
+  width: calc(var(--unit) * 2);
+  height: calc(var(--unit) * 2);
+}
+
+.blank-left-down.last {
+  left: calc(var(--unit) * 5);
+}
+
+.horizontal {
+  position: absolute;
+  top: calc(var(--unit) * 7 - 2px);
+  left: calc(var(--unit) * 0);
+  border: 3px dashed var(--border-color);
+  width: calc(var(--unit) * 10);
+}
+
+.horizontal.last {
+  top: calc(var(--unit) * 5);
+  left: calc(var(--unit) * 2);
+  width: calc(var(--unit) * 7);
+}
+
+.vertical {
+  position: absolute;
+  top: calc(var(--unit) * 0);
+  left: calc(var(--unit) * 7);
+  border: 3px dashed var(--border-color);
+  height: calc(var(--unit) * 10);
+}
+
+.vertical.last {
+  top: calc(var(--unit) * 2);
+  left: calc(var(--unit) * 5);
+  height: calc(var(--unit) * 7);
+}
+
+.content-2,
+.content-3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: calc(var(--unit) * 1);
+}
+
+.question {
+  margin-top: calc(var(--unit) * 3);
+  --h1-size: calc(var(--font-unit) * 1.4);
+  background-color: var(--rectangle-ab-color);
+  padding: calc(var(--unit) * 1) calc(var(--unit) * 2);
+  font-weight: 600;
+  font-size: var(--h1-size);
+  font-family: "Calibri", sans-serif;
+  user-select: none;
+}
+
+.choices {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: calc(var(--unit) * 2);
+  margin-top: calc(var(--unit) * 1);
+  font-size: calc(var(--font-unit) * 0.6);
+}
+
+.choice {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  background-color: var(--square-b-color);
+  padding: calc(var(--unit) * 0.8) calc(var(--unit) * 1.8);
+  font-weight: 600;
+  font-family: "Calibri", sans-serif;
+  user-select: none;
+}
+
+.choice:hover {
+  transform: scale(1.1);
+  transition: 0.3s;
+  background-color: var(--choice-hover-color);
+}
+
+.correct {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  backdrop-filter: blur(3px);
+  background-color: var(--square-a-color);
+  padding: calc(var(--unit) * 1) calc(var(--unit) * 2);
+  font-size: calc(var(--font-unit) * 1.2);
+  font-family: "Calibri", sans-serif;
+  user-select: none;
+}
+
+.backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  background-color: var(--background-color);
+  width: 100vw;
+  height: 100vh;
+}
+
+.shuffle {
+  position: absolute;
+  bottom: calc(var(--unit) * 1.4);
+  cursor: pointer;
+  background-color: var(--square-b-color);
+  padding: calc(var(--unit) * 0.2) calc(var(--unit) * 1);
+  font-size: calc(var(--font-unit) * 0.6);
+  user-select: none;
+}
+
+.gif {
+  position: absolute;
+  top: 10%;
+  z-index: 3;
+  width: auto;
+  height: 75vh;
+}
+
+.exercises-list {
+  margin-top: calc(var(--unit) * 3);
+  --h1-size: calc(var(--font-unit) * 1.4);
+  gap: calc(var(--unit) * 1);
+  background-color: var(--rectangle-ab-color);
+  padding: calc(var(--unit) * 1) calc(var(--unit) * 2);
+  font-weight: 600;
+  font-size: var(--h1-size);
+}
+
+.exercises-list > li {
+  padding: calc(var(--unit) * 0.1);
+  font-family: "Calibri", sans-serif;
+}
+
+#drawCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  cursor: crosshair;
+  background-color: var(--background-color);
+  width: 100vw;
+  height: 100vh;
+}
+
+.clear {
+  position: absolute;
+  bottom: calc(var(--unit) * 1.4);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  cursor: pointer;
+  background-color: var(--square-b-color);
+  padding: calc(var(--unit) * 0.2) calc(var(--unit) * 1);
+  font-size: calc(var(--font-unit) * 0.6);
+  user-select: none;
+}
+
+.previous,
+.next {
+  position: absolute;
+  z-index: 2;
+  cursor: pointer;
+  margin-top: calc(var(--unit) * 7.8);
+  background-color: var(--background-color);
+  padding: calc(var(--unit) * 0.2) calc(var(--unit) * 0.4);
+  font-size: calc(var(--font-unit) * 0.6);
+  user-select: none;
+}
+
+.previous {
+  transform: translateX(-180%);
+}
+
+.next {
+  transform: translateX(+180%);
+}
+
+.help {
+  position: absolute;
+  top: calc(var(--unit) * 3);
+  left: calc(var(--unit) * 8);
+  background-color: var(--square-a-color);
+  padding: calc(var(--unit) * 0.2) calc(var(--unit) * 0.4);
+  user-select: none;
+}
+
+.help svg {
+  width: calc(var(--unit) * 10);
+}
+
+li {
+  margin: calc(var(--unit) * 0.2);
+}

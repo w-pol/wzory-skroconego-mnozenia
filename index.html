@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wzory skróconego mnożenia</title>
+    <link rel="stylesheet" href="style.css" />
+    <script type="module" src="script.js" defer></script>
+    <script>
+      window.MathJax = {
+        options: {
+          renderActions: {
+            addMenu: [],
+          },
+        },
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  </head>
+  <body>
+    <div class="graph-paper">
+      <nav class="buttons">
+        <button>Wzory</button>
+        <button>Quiz-1</button>
+        <button>Quiz-2</button>
+        <button>Ćwiczenia</button>
+      </nav>
+      <div class="content-1">
+        <h1>Wzory skróconego mnożenia</h1>
+        <div class="formulas-container">
+          <div class="operators">
+            <span class="plus">+</span>
+            <span class="minus">-</span>
+          </div>
+          <div class="formula">
+            <div class="drawing">
+              <div class="rectangle blank-left-top">a</div>
+              <div class="rectangle blank-right-top">b</div>
+              <div class="rectangle blank-left-up">a</div>
+              <div class="rectangle square-a">a<sup>2</sup></div>
+              <div class="rectangle rectangle-ab">ab</div>
+              <div class="rectangle blank-left-down">b</div>
+              <div class="rectangle square-b">b<sup>2</sup></div>
+              <div class="rectangle rectangle-ba">ab</div>
+              <hr class="horizontal" />
+              <hr class="vertical" />
+            </div>
+            <span
+              >(a + b)<sup>2</sup> = a<sup>2</sup> + 2ab + b<sup>2</sup></span
+            >
+          </div>
+          <div class="formula">
+            <div class="drawing">
+              <div class="rectangle blank-left-top">a</div>
+              <div class="rectangle blank-right-top">b</div>
+              <div class="rectangle blank-left-up">a</div>
+              <div class="rectangle square-a">a<sup>2</sup></div>
+              <div class="rectangle rectangle-ab minus">ab</div>
+              <div class="rectangle blank-left-down">b</div>
+              <div class="rectangle square-b">b<sup>2</sup></div>
+              <div class="rectangle rectangle-ba minus">ab</div>
+              <hr class="horizontal" />
+              <hr class="vertical" />
+            </div>
+            <span
+              >(a - b)<sup>2</sup> = a<sup>2</sup> - 2ab + b<sup>2</sup></span
+            >
+          </div>
+          <div class="formula last">
+            <div class="drawing last">
+              <div class="rectangle blank-left-top">a</div>
+              <div class="rectangle blank-right-top last">b</div>
+              <div class="rectangle blank-left-up last">a</div>
+              <div class="rectangle square-a last"></div>
+              <div class="rectangle rectangle-ab last"></div>
+              <div class="rectangle blank-left-down last">b</div>
+              <div class="rectangle square-b last">b<sup>2</sup></div>
+              <div class="rectangle rectangle-ba last"></div>
+              <hr class="horizontal last" />
+              <hr class="vertical last" />
+            </div>
+            <span style="position: absolute"
+              >(a + b)(a - b) = a<sup>2</sup> - b<sup>2</sup></span
+            >
+          </div>
+        </div>
+      </div>
+      <div class="content-2" style="display: none"></div>
+      <div class="content-3" style="display: none"></div>
+      <div class="content-4" style="display: none">
+        <ol class="exercises-list">
+          <li>\( (5u - 2w)(5u + 2w) \)</li>
+          <li>\( (3k + 2m)^2 \)</li>
+          <li>\( (\frac{5}{6}s - \frac{2}{3}t)^2 \)</li>
+          <li>\( (7p - 3q)^2 \)</li>
+          <li>\( (\sqrt{3} + v)^2 \)</li>
+          <li>\( (\frac{1}{5}a + 0,5b)(\frac{1}{5}a - 0,5b) \)</li>
+          <li>\( (\sqrt{3} + \sqrt{5})(\sqrt{3} - \sqrt{5}) \)</li>
+          <li>\( (" - 6y)^2 = \frac{1}{4}x^2 - " + " \)</li>
+          <li>\( (0,1a + ")^2 = " + 2ab + " \)</li>
+        </ol>
+      </div>
+    </div>
+  </body>
+</html>
