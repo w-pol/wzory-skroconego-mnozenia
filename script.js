@@ -221,7 +221,7 @@ const createQuiz = (questions, container, gifUrl) => {
         }
         loadQuestion();
         MathJax.typesetPromise();
-      }, 2000);
+      }, 1000);
     }
   });
 
