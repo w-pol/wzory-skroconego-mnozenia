@@ -108,6 +108,8 @@ function removeObject(object) {
 /*-------------------------------------------------------------*/
 
 const createQuiz = (questions, container, gifUrl) => {
+  let isClickable = true;
+
   const help = document.createElement("div");
   help.classList.add("help");
   help.innerHTML += `<span>\\( (a + b)^2 = a^2 + 2ab + b^2 \\)</span><br>
@@ -192,16 +194,19 @@ const createQuiz = (questions, container, gifUrl) => {
 
   choices.addEventListener("click", (event) => {
     const target = event.target.closest(".choice");
-    if (!target) return;
+    if (!target || !isClickable) return;
 
     const correct = target.getAttribute("data-correct") === "true";
     if (!correct) {
+      isClickable = false;
+
       target.style.backgroundColor = "tomato";
       setTimeout(() => {
         target.style.backgroundColor = "";
         shuffle(questions[questionIndex].answers);
         loadQuestion();
         MathJax.typesetPromise();
+        isClickable = true;
       }, 1000);
     } else {
       const correctDiv = document.createElement("div");
