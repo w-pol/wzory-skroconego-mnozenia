@@ -207,7 +207,7 @@ const createQuiz = (questions, container, gifUrl) => {
         loadQuestion();
         MathJax.typesetPromise();
         isClickable = true;
-      }, 1000);
+      }, 600);
     } else {
       const correctDiv = document.createElement("div");
       correctDiv.classList.add("correct");
@@ -226,7 +226,7 @@ const createQuiz = (questions, container, gifUrl) => {
         }
         loadQuestion();
         MathJax.typesetPromise();
-      }, 1000);
+      }, 600);
     }
   });
 
